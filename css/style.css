@@ -1,0 +1,170 @@
+html {
+     height: 100%; 
+ }
+ 
+ body {
+     min-height: 100%;
+ }
+
+ .container-login {
+     height: 100vh!important;
+ }
+ 
+ .contenido span {
+      text-transform: capitalize;
+ }
+
+ body.login .contenido {
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 17px 39px -6px rgba(0,0,0,0.76);
+    -moz-box-shadow: 0px 17px 39px -6px rgba(0,0,0,0.76);
+    box-shadow: 0px 17px 39px -6px rgba(0,0,0,0.76);
+}
+
+.titulo-login span, .titulo-login2 span {
+    color: beige;
+    font-size: 12px;
+    font-style: italic;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+@media screen and (max-width: 385px) {
+    .titulo-login span{
+        display: block;
+    }
+}
+
+.bd_navbar {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 1100;
+}
+
+.datosTabla {
+    /* min-height: 150px; */
+    overflow: auto;
+}
+
+/* Tamaño del campo de las opciones de vacaciones y feriados */
+.radioVacaciones {
+    height: auto;
+}
+
+/* Fondo que se agrega al registro que se está editando */
+.fondo-editar {
+    background-color: rgb(169, 214, 183);
+}
+
+/* Para desactivar los bonotes de editar y borrar de la tabla, mientras se edita */
+a.disabled {
+    pointer-events: none;
+    cursor: default;
+  }
+
+
+/* Estilo para seleccion de mes y año del reporte excel */
+.ddl-reporte {
+    height: 2rem;
+    width: 8rem;
+}
+
+/* Aplica color de fondo a las filas de suma del reporte */
+.fondo-suma-repo {
+    background-color: oldlace;
+}
+
+.fondo-atenuado{
+	display: none;
+	position: fixed;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	z-index:1001;
+	-moz-opacity: 0.7;
+	opacity:.70;
+    filter: alpha(opacity=70);
+    transition: ease;
+}
+.spinner-size {
+    width: 5rem;
+    height: 5rem;
+}
+
+.spinner-text {
+    position: absolute;
+}
+
+.minh-100 {
+    height: 100vh;
+  }
+
+.footer {
+position: fixed;
+bottom: 0;
+width: 100%;
+height: 20px;
+font-size: 12px;
+color: white;
+}
+
+/* Pone el campo fecha del reporte centrado verticalmente */
+.thFechaReporte {
+    vertical-align: middle!important;
+}
+
+/* Alinear a la izquierda los checkbox de la lista de excepciones */
+.checkbox {
+    justify-content: start!important;
+}
+
+
+/* Estilos para el Swith de activar y desactivar usuario */
+.onoffswitch {
+    position: relative; width: 90px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.onoffswitch-checkbox {
+    display: none;
+}
+.onoffswitch-label {
+    display: block; overflow: hidden; cursor: pointer;
+    border: 2px solid #999999; border-radius: 10px;
+}
+.onoffswitch-inner {
+    display: block; width: 200%; margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+    display: block; float: left; width: 50%; height: 26px; padding: 0; line-height: 26px;
+    font-size: 10px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+    box-sizing: border-box;
+}
+.onoffswitch-inner:before {
+    content: "ACTIVO";
+    padding-left: 9px;
+    background-color: #34A7C1; color: #FFFFFF;
+}
+.onoffswitch-inner:after {
+    content: "INACTIVO";
+    padding-right: 9px;
+    background-color: #EEEEEE; color: #999999;
+    text-align: right;
+}
+.onoffswitch-switch {
+    display: block; width: 18px; margin: 4px;
+    background: #FFFFFF;
+    position: absolute; top: 0; bottom: 0;
+    right: 60px;
+    border: 2px solid #999999; border-radius: 10px;
+    transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0px; 
+}
+
