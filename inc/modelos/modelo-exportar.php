@@ -2,8 +2,8 @@
 // error_reporting(E_ALL);
 // ini_set('display_errors', 1);
 
-if (isset($_POST['cedula'])) {
-    $cedula = filter_var($_POST['cedula'], FILTER_SANITIZE_STRING);
+if (isset($_POST['usuario'])) {
+    $cedula = filter_var($_POST['usuario'], FILTER_SANITIZE_STRING);
 } 
 if (isset($_POST['areaRegion'])) {
     $areRegion = filter_var($_POST['areaRegion'], FILTER_SANITIZE_STRING);

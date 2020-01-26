@@ -163,7 +163,7 @@ function validarRegistro() {
         actividad = document.querySelector('#actividad').value,
         horas = document.querySelector('#horas').value,
         detalle = document.querySelector('#detalle').value;
-        tipo = document.querySelector('#tipo').value;
+        accion = document.querySelector('#accion').value;
 
         // Todos los campos son correctos, mandar ejecutar Ajax        
              
@@ -175,7 +175,7 @@ function validarRegistro() {
         datos.append('actividad', actividad);
         datos.append('horas', horas);
         datos.append('detalle', detalle);
-        datos.append('accion', tipo);
+        datos.append('accion', accion);
 
         activarSpinner();
 
@@ -237,7 +237,7 @@ function registrarAlmuerzo(){
 
     var cedula = document.querySelector('#cedula').value,
         fecha = document.querySelector('#fecha').value,
-        tipo = document.querySelector('#tipo').value;
+        accion = document.querySelector('#accion').value;
 
     let catPermisos =  19;
     let tiempoAlmuerzo = 0.75;
@@ -250,7 +250,7 @@ function registrarAlmuerzo(){
     datos.append('actividad', actAlmuerzo);
     datos.append('horas', tiempoAlmuerzo);
     datos.append('detalle', "Almuerzo");
-    datos.append('accion', tipo);
+    datos.append('accion', accion);
 
     activarSpinner();
 
