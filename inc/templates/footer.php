@@ -22,8 +22,8 @@
     }elseif($actual === 'backend') {
         echo '<script src="js/scriptsBackend.js"></script>';
     }else {
-        echo '<script src="js/formulario-registrar-actividad.js"></script>';
-        echo '<script src="js/scripts.js?v=2"></script>';
+        echo '<script src="js/formulario-registrar-actividad.js?v=1"></script>';
+        echo '<script src="js/scripts.js?v=3"></script>';
     }
 ?>
 
