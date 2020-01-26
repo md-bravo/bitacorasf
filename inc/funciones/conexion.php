@@ -5,6 +5,8 @@
 
     $conn = new mysqli('localhost', 'root', 'root', 'bitacora');
 
+    // $conn = new mysqli('localhost', 'macbb_root', '123root456', 'macbb_bitacorasf');
+
     //$conn = new mysqli('localhost', 'admin', 'admin', 'bitacora');
 
     if($conn->connect_error){
