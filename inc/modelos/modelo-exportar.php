@@ -75,7 +75,7 @@ $MC = 1;
 $EO = 3;
 $TE = 4;
 $GAAct = 5;
-$SF = 6;
+// $SF = 6;
 $SI = 7;
 $CR = 8;
 $RT = 9;
@@ -111,9 +111,9 @@ use PhpOffice\PhpSpreadsheet\Style\Border;
 $reader = IOFactory::createReader('Xlsx');
 
 if($tipo === 'totalesTodos'){
-    $spreadsheet = $reader->load('../../inc/templates/templateTotales.xlsx');
+    $spreadsheet = $reader->load('../../inc/templates/templateTotalesNew.xlsx');
 }else{
-    $spreadsheet = $reader->load('../../inc/templates/template.xlsx');
+    $spreadsheet = $reader->load('../../inc/templates/templateNew.xlsx');
 }
 
 $sheet = $spreadsheet->getActiveSheet();
@@ -222,9 +222,9 @@ if($tipo === 'reportePersonal'){
             $sheet->getStyle('V'.$filaActual.':Y'.$filaActual)->applyFromArray($fondoCeleste);
             $sheet->getStyle('AD'.$filaActual.':AG'.$filaActual)->applyFromArray($fondoCeleste);
             $sheet->getStyle('AL'.$filaActual.':AO'.$filaActual)->applyFromArray($fondoCeleste);
-            $sheet->getStyle('AT'.$filaActual.':BD'.$filaActual)->applyFromArray($fondoCeleste);
-            $sheet->getStyle('BE'.$filaActual.':BI'.$filaActual)->applyFromArray($fondoVerde);
-            $sheet->getStyle('A'.$filaActual.':BK'.$filaActual)->getBorders()->getAllBorders()->applyFromArray( array( 'borderStyle' => Border::BORDER_THIN) );
+            $sheet->getStyle('AT'.$filaActual.':BC'.$filaActual)->applyFromArray($fondoCeleste);
+            $sheet->getStyle('CC'.$filaActual.':CG'.$filaActual)->applyFromArray($fondoVerde);
+            $sheet->getStyle('A'.$filaActual.':CI'.$filaActual)->getBorders()->getAllBorders()->applyFromArray( array( 'borderStyle' => Border::BORDER_THIN) );
 
             // Si hay valores los carga en la tabla
             foreach($respuesta as $registro){
@@ -372,67 +372,67 @@ if($tipo === 'reportePersonal'){
                                         break;                                                                                        
                                     }
                                 break;
-                            case $COPD  :
-                                switch ($act) {
-                                    case $SF :
-                                        $sheet->setCellValue('AT'.$filaActual, $totalHoras34 += $horas);  
-                                        break;                            
-                                    case $SI :
-                                        $sheet->setCellValue('AU'.$filaActual, $totalHoras35 += $horas);  
-                                        break;
-                                    case $CR :
-                                        $sheet->setCellValue('AV'.$filaActual, $totalHoras36 += $horas);  
-                                        break;
-                                    case $RT :
-                                        $sheet->setCellValue('AW'.$filaActual, $totalHoras37 += $horas);  
-                                        break;  
-                                    case $PM :
-                                        $sheet->setCellValue('AX'.$filaActual, $totalHoras38 += $horas);  
-                                        break;  
-                                    case $EC :
-                                        $sheet->setCellValue('AY'.$filaActual, $totalHoras39 += $horas);  
-                                        break;  
-                                    case $DCORS :
-                                        $sheet->setCellValue('AZ'.$filaActual, $totalHoras40 += $horas);  
-                                        break;  
-                                    case $DGEAS :
-                                        $sheet->setCellValue('BA'.$filaActual, $totalHoras41 += $horas);  
-                                        break; 
-                                    case $ST :
-                                        $sheet->setCellValue('BB'.$filaActual, $totalHoras42 += $horas);  
-                                        break;  
-                                    case $SE :
-                                        $sheet->setCellValue('BC'.$filaActual, $totalHoras43 += $horas);  
-                                        break;
-                                    case $AS :
-                                        $sheet->setCellValue('BD'.$filaActual, $totalHoras44 += $horas);  
-                                        break;                                                                                           
-                                    }
-                                break;
-                            case $PER  :
-                                switch ($act) {
-                                    case $ICM :
-                                        $sheet->setCellValue('BE'.$filaActual, $totalHoras45 += $horas);  
-                                        break;                            
-                                    case $PAICEG :
-                                        $sheet->setCellValue('BF'.$filaActual, $totalHoras46 += $horas);  
-                                        break;
-                                    case $EDC :
-                                        $sheet->setCellValue('BG'.$filaActual, $totalHoras47 += $horas);  
-                                        break;
-                                    case $VAC :
-                                        $sheet->setCellValue('BH'.$filaActual, $totalHoras48 += $horas);  
-                                        break;                                                                                        
-                                    case $DPAlm :
-                                        $sheet->setCellValue('BI'.$filaActual, $totalHoras49 += $horas);  
-                                        break; 
-                                    }
-                                break;
-                        }            
-                        $sheet->setCellValue('BJ'.$filaActual, '=SUM(M'.$filaActual.':BI'.$filaActual.')');
-                        // $detalle = $detalle . $regAct[$i]->detalle . ' / ';
-                        // $sheet->setCellValue('BK'.$filaActual, $detalle);
-                    }        
+                                case $COPD  :
+                                    switch ($act) {
+                                        // case $SF :
+                                        //     $sheet->setCellValue('AT'.$filaActual, $totalHoras34 += $horas);  
+                                        //     break;                            
+                                        case $SI :
+                                            $sheet->setCellValue('AT'.$filaActual, $totalHoras35 += $horas);  
+                                            break;
+                                        case $CR :
+                                            $sheet->setCellValue('AU'.$filaActual, $totalHoras36 += $horas);  
+                                            break;
+                                        case $RT :
+                                            $sheet->setCellValue('AV'.$filaActual, $totalHoras37 += $horas);  
+                                            break;  
+                                        case $PM :
+                                            $sheet->setCellValue('AW'.$filaActual, $totalHoras38 += $horas);  
+                                            break;  
+                                        case $EC :
+                                            $sheet->setCellValue('AX'.$filaActual, $totalHoras39 += $horas);  
+                                            break;  
+                                        case $DCORS :
+                                            $sheet->setCellValue('AY'.$filaActual, $totalHoras40 += $horas);  
+                                            break;  
+                                        case $DGEAS :
+                                            $sheet->setCellValue('AZ'.$filaActual, $totalHoras41 += $horas);  
+                                            break; 
+                                        case $ST :
+                                            $sheet->setCellValue('BA'.$filaActual, $totalHoras42 += $horas);  
+                                            break;  
+                                        case $SE :
+                                            $sheet->setCellValue('BB'.$filaActual, $totalHoras43 += $horas);  
+                                            break;
+                                        case $AS :
+                                            $sheet->setCellValue('BC'.$filaActual, $totalHoras44 += $horas);  
+                                            break;                                                                                           
+                                        }
+                                    break;
+                                case $PER  :
+                                    switch ($act) {
+                                        case $ICM :
+                                            $sheet->setCellValue('CC'.$filaActual, $totalHoras45 += $horas);  
+                                            break;                            
+                                        case $PAICEG :
+                                            $sheet->setCellValue('CD'.$filaActual, $totalHoras46 += $horas);  
+                                            break;
+                                        case $EDC :
+                                            $sheet->setCellValue('CE'.$filaActual, $totalHoras47 += $horas);  
+                                            break;
+                                        case $VAC :
+                                            $sheet->setCellValue('CF'.$filaActual, $totalHoras48 += $horas);  
+                                            break;                                                                                        
+                                        case $DPAlm :
+                                            $sheet->setCellValue('CG'.$filaActual, $totalHoras49 += $horas);  
+                                            break; 
+                                        }
+                                    break;
+                            }            
+                            $sheet->setCellValue('CH'.$filaActual, '=SUM(M'.$filaActual.':CG'.$filaActual.')');
+                            // $detalle = $detalle . $regAct[$i]->detalle . ' / ';
+                            // $sheet->setCellValue('BK'.$filaActual, $detalle);
+                        }          
 
                 // Si no hay valores, deja los espacios en blanco
                 } else {
@@ -552,9 +552,9 @@ if($tipo === 'areaRegion'){
                     $sheet->getStyle('V'.$filaActual.':Y'.$filaActual)->applyFromArray($fondoCeleste);
                     $sheet->getStyle('AD'.$filaActual.':AG'.$filaActual)->applyFromArray($fondoCeleste);
                     $sheet->getStyle('AL'.$filaActual.':AO'.$filaActual)->applyFromArray($fondoCeleste);
-                    $sheet->getStyle('AT'.$filaActual.':BD'.$filaActual)->applyFromArray($fondoCeleste);
-                    $sheet->getStyle('BE'.$filaActual.':BI'.$filaActual)->applyFromArray($fondoVerde);
-                    $sheet->getStyle('A'.$filaActual.':BK'.$filaActual)->getBorders()->getAllBorders()->applyFromArray( array( 'borderStyle' => Border::BORDER_THIN) );
+                    $sheet->getStyle('AT'.$filaActual.':BC'.$filaActual)->applyFromArray($fondoCeleste);
+                    $sheet->getStyle('CC'.$filaActual.':CG'.$filaActual)->applyFromArray($fondoVerde);
+                    $sheet->getStyle('A'.$filaActual.':CI'.$filaActual)->getBorders()->getAllBorders()->applyFromArray( array( 'borderStyle' => Border::BORDER_THIN) );
             
                     // Si hay valores los carga en la tabla
                     foreach($respuesta as $registro){
@@ -704,65 +704,65 @@ if($tipo === 'areaRegion'){
                                         break;
                                     case $COPD  :
                                         switch ($act) {
-                                            case $SF :
-                                                $sheet->setCellValue('AT'.$filaActual, $totalHoras34 += $horas);  
-                                                break;                            
+                                            // case $SF :
+                                            //     $sheet->setCellValue('AT'.$filaActual, $totalHoras34 += $horas);  
+                                            //     break;                            
                                             case $SI :
-                                                $sheet->setCellValue('AU'.$filaActual, $totalHoras35 += $horas);  
+                                                $sheet->setCellValue('AT'.$filaActual, $totalHoras35 += $horas);  
                                                 break;
                                             case $CR :
-                                                $sheet->setCellValue('AV'.$filaActual, $totalHoras36 += $horas);  
+                                                $sheet->setCellValue('AU'.$filaActual, $totalHoras36 += $horas);  
                                                 break;
                                             case $RT :
-                                                $sheet->setCellValue('AW'.$filaActual, $totalHoras37 += $horas);  
+                                                $sheet->setCellValue('AV'.$filaActual, $totalHoras37 += $horas);  
                                                 break;  
                                             case $PM :
-                                                $sheet->setCellValue('AX'.$filaActual, $totalHoras38 += $horas);  
+                                                $sheet->setCellValue('AW'.$filaActual, $totalHoras38 += $horas);  
                                                 break;  
                                             case $EC :
-                                                $sheet->setCellValue('AY'.$filaActual, $totalHoras39 += $horas);  
+                                                $sheet->setCellValue('AX'.$filaActual, $totalHoras39 += $horas);  
                                                 break;  
                                             case $DCORS :
-                                                $sheet->setCellValue('AZ'.$filaActual, $totalHoras40 += $horas);  
+                                                $sheet->setCellValue('AY'.$filaActual, $totalHoras40 += $horas);  
                                                 break;  
                                             case $DGEAS :
-                                                $sheet->setCellValue('BA'.$filaActual, $totalHoras41 += $horas);  
+                                                $sheet->setCellValue('AZ'.$filaActual, $totalHoras41 += $horas);  
                                                 break; 
                                             case $ST :
-                                                $sheet->setCellValue('BB'.$filaActual, $totalHoras42 += $horas);  
+                                                $sheet->setCellValue('BA'.$filaActual, $totalHoras42 += $horas);  
                                                 break;  
                                             case $SE :
-                                                $sheet->setCellValue('BC'.$filaActual, $totalHoras43 += $horas);  
+                                                $sheet->setCellValue('BB'.$filaActual, $totalHoras43 += $horas);  
                                                 break;
                                             case $AS :
-                                                $sheet->setCellValue('BD'.$filaActual, $totalHoras44 += $horas);  
+                                                $sheet->setCellValue('BC'.$filaActual, $totalHoras44 += $horas);  
                                                 break;                                                                                           
                                             }
                                         break;
                                     case $PER  :
                                         switch ($act) {
                                             case $ICM :
-                                                $sheet->setCellValue('BE'.$filaActual, $totalHoras45 += $horas);  
+                                                $sheet->setCellValue('CC'.$filaActual, $totalHoras45 += $horas);  
                                                 break;                            
                                             case $PAICEG :
-                                                $sheet->setCellValue('BF'.$filaActual, $totalHoras46 += $horas);  
+                                                $sheet->setCellValue('CD'.$filaActual, $totalHoras46 += $horas);  
                                                 break;
                                             case $EDC :
-                                                $sheet->setCellValue('BG'.$filaActual, $totalHoras47 += $horas);  
+                                                $sheet->setCellValue('CE'.$filaActual, $totalHoras47 += $horas);  
                                                 break;
                                             case $VAC :
-                                                $sheet->setCellValue('BH'.$filaActual, $totalHoras48 += $horas);  
+                                                $sheet->setCellValue('CF'.$filaActual, $totalHoras48 += $horas);  
                                                 break;                                                                                        
                                             case $DPAlm :
-                                                $sheet->setCellValue('BI'.$filaActual, $totalHoras49 += $horas);  
+                                                $sheet->setCellValue('CG'.$filaActual, $totalHoras49 += $horas);  
                                                 break; 
                                             }
                                         break;
                                 }            
-                                $sheet->setCellValue('BJ'.$filaActual, '=SUM(M'.$filaActual.':BI'.$filaActual.')');
+                                $sheet->setCellValue('CH'.$filaActual, '=SUM(M'.$filaActual.':CG'.$filaActual.')');
                                 // $detalle = $detalle . $regAct[$i]->detalle . ' / ';
                                 // $sheet->setCellValue('BK'.$filaActual, $detalle);
-                            }        
+                            }   
 
                         // Si no hay valores, deja los espacios en blanco
                         } else {
@@ -896,9 +896,9 @@ if($tipo === 'todos'){
                     $sheet->getStyle('V'.$filaActual.':Y'.$filaActual)->applyFromArray($fondoCeleste);
                     $sheet->getStyle('AD'.$filaActual.':AG'.$filaActual)->applyFromArray($fondoCeleste);
                     $sheet->getStyle('AL'.$filaActual.':AO'.$filaActual)->applyFromArray($fondoCeleste);
-                    $sheet->getStyle('AT'.$filaActual.':BD'.$filaActual)->applyFromArray($fondoCeleste);
-                    $sheet->getStyle('BE'.$filaActual.':BI'.$filaActual)->applyFromArray($fondoVerde);
-                    $sheet->getStyle('A'.$filaActual.':BK'.$filaActual)->getBorders()->getAllBorders()->applyFromArray( array( 'borderStyle' => Border::BORDER_THIN) );
+                    $sheet->getStyle('AT'.$filaActual.':BC'.$filaActual)->applyFromArray($fondoCeleste);
+                    $sheet->getStyle('CC'.$filaActual.':CG'.$filaActual)->applyFromArray($fondoVerde);
+                    $sheet->getStyle('A'.$filaActual.':CI'.$filaActual)->getBorders()->getAllBorders()->applyFromArray( array( 'borderStyle' => Border::BORDER_THIN) );
             
                     // Si hay valores los carga en la tabla
                     foreach($respuesta as $registro){
@@ -1048,65 +1048,65 @@ if($tipo === 'todos'){
                                         break;
                                     case $COPD  :
                                         switch ($act) {
-                                            case $SF :
-                                                $sheet->setCellValue('AT'.$filaActual, $totalHoras34 += $horas);  
-                                                break;                            
+                                            // case $SF :
+                                            //     $sheet->setCellValue('AT'.$filaActual, $totalHoras34 += $horas);  
+                                            //     break;                            
                                             case $SI :
-                                                $sheet->setCellValue('AU'.$filaActual, $totalHoras35 += $horas);  
+                                                $sheet->setCellValue('AT'.$filaActual, $totalHoras35 += $horas);  
                                                 break;
                                             case $CR :
-                                                $sheet->setCellValue('AV'.$filaActual, $totalHoras36 += $horas);  
+                                                $sheet->setCellValue('AU'.$filaActual, $totalHoras36 += $horas);  
                                                 break;
                                             case $RT :
-                                                $sheet->setCellValue('AW'.$filaActual, $totalHoras37 += $horas);  
+                                                $sheet->setCellValue('AV'.$filaActual, $totalHoras37 += $horas);  
                                                 break;  
                                             case $PM :
-                                                $sheet->setCellValue('AX'.$filaActual, $totalHoras38 += $horas);  
+                                                $sheet->setCellValue('AW'.$filaActual, $totalHoras38 += $horas);  
                                                 break;  
                                             case $EC :
-                                                $sheet->setCellValue('AY'.$filaActual, $totalHoras39 += $horas);  
+                                                $sheet->setCellValue('AX'.$filaActual, $totalHoras39 += $horas);  
                                                 break;  
                                             case $DCORS :
-                                                $sheet->setCellValue('AZ'.$filaActual, $totalHoras40 += $horas);  
+                                                $sheet->setCellValue('AY'.$filaActual, $totalHoras40 += $horas);  
                                                 break;  
                                             case $DGEAS :
-                                                $sheet->setCellValue('BA'.$filaActual, $totalHoras41 += $horas);  
+                                                $sheet->setCellValue('AZ'.$filaActual, $totalHoras41 += $horas);  
                                                 break; 
                                             case $ST :
-                                                $sheet->setCellValue('BB'.$filaActual, $totalHoras42 += $horas);  
+                                                $sheet->setCellValue('BA'.$filaActual, $totalHoras42 += $horas);  
                                                 break;  
                                             case $SE :
-                                                $sheet->setCellValue('BC'.$filaActual, $totalHoras43 += $horas);  
+                                                $sheet->setCellValue('BB'.$filaActual, $totalHoras43 += $horas);  
                                                 break;
                                             case $AS :
-                                                $sheet->setCellValue('BD'.$filaActual, $totalHoras44 += $horas);  
-                                                break;                                                                        
+                                                $sheet->setCellValue('BC'.$filaActual, $totalHoras44 += $horas);  
+                                                break;                                                                                           
                                             }
                                         break;
                                     case $PER  :
                                         switch ($act) {
                                             case $ICM :
-                                                $sheet->setCellValue('BE'.$filaActual, $totalHoras45 += $horas);  
+                                                $sheet->setCellValue('CC'.$filaActual, $totalHoras45 += $horas);  
                                                 break;                            
                                             case $PAICEG :
-                                                $sheet->setCellValue('BF'.$filaActual, $totalHoras46 += $horas);  
+                                                $sheet->setCellValue('CD'.$filaActual, $totalHoras46 += $horas);  
                                                 break;
                                             case $EDC :
-                                                $sheet->setCellValue('BG'.$filaActual, $totalHoras47 += $horas);  
+                                                $sheet->setCellValue('CE'.$filaActual, $totalHoras47 += $horas);  
                                                 break;
                                             case $VAC :
-                                                $sheet->setCellValue('BH'.$filaActual, $totalHoras48 += $horas);  
+                                                $sheet->setCellValue('CF'.$filaActual, $totalHoras48 += $horas);  
                                                 break;                                                                                        
                                             case $DPAlm :
-                                                $sheet->setCellValue('BI'.$filaActual, $totalHoras49 += $horas);  
+                                                $sheet->setCellValue('CG'.$filaActual, $totalHoras49 += $horas);  
                                                 break; 
                                             }
                                         break;
                                 }            
-                                $sheet->setCellValue('BJ'.$filaActual, '=SUM(M'.$filaActual.':BI'.$filaActual.')');
+                                $sheet->setCellValue('CH'.$filaActual, '=SUM(M'.$filaActual.':CG'.$filaActual.')');
                                 // $detalle = $detalle . $regAct[$i]->detalle . ' / ';
                                 // $sheet->setCellValue('BK'.$filaActual, $detalle);
-                            }        
+                            }    
 
                         // Si no hay valores, deja los espacios en blanco
                         } else {
@@ -1201,14 +1201,17 @@ if($tipo === 'totalesTodos'){
             $sheet->setCellValue('H'.$filaActual, $nombreMes);
             $sheet->setCellValue('I'.$filaActual, $anio);   
 
+
             $sheet->getStyle('J'.$filaActual)->applyFromArray($fondoAmarillo);
             $sheet->getStyle('K'.$filaActual.':N'.$filaActual)->applyFromArray($fondoCeleste);
             $sheet->getStyle('S'.$filaActual.':V'.$filaActual)->applyFromArray($fondoCeleste);
             $sheet->getStyle('AA'.$filaActual.':AD'.$filaActual)->applyFromArray($fondoCeleste);
             $sheet->getStyle('AI'.$filaActual.':AL'.$filaActual)->applyFromArray($fondoCeleste);
-            $sheet->getStyle('AQ'.$filaActual.':BA'.$filaActual)->applyFromArray($fondoCeleste);
-            $sheet->getStyle('BB'.$filaActual.':BF'.$filaActual)->applyFromArray($fondoVerde);
-            $sheet->getStyle('A'.$filaActual.':BG'.$filaActual)->getBorders()->getAllBorders()->applyFromArray( array( 'borderStyle' => Border::BORDER_THIN) );
+            $sheet->getStyle('AQ'.$filaActual.':AZ'.$filaActual)->applyFromArray($fondoCeleste);
+            $sheet->getStyle('BA'.$filaActual.':BE'.$filaActual)->applyFromArray($fondoVerde);
+            $sheet->getStyle('A'.$filaActual.':BF'.$filaActual)->getBorders()->getAllBorders()->applyFromArray( array( 'borderStyle' => Border::BORDER_THIN) );
+
+
 
             
             $totalHoras1=$totalHoras2=$totalHoras3=$totalHoras4=$totalHoras5=$totalHoras6=$totalHoras7=$totalHoras8=$totalHoras9=$totalHoras10=$totalHoras11=$totalHoras12=$totalHoras13=$totalHoras14=$totalHoras15=$totalHoras16=$totalHoras17=$totalHoras18=$totalHoras19=$totalHoras20=$totalHoras21=$totalHoras22=$totalHoras23=$totalHoras24=$totalHoras25=$totalHoras26=$totalHoras27=$totalHoras28=$totalHoras29=$totalHoras30=$totalHoras31=$totalHoras32=$totalHoras33=$totalHoras34=$totalHoras35=$totalHoras36=$totalHoras37=$totalHoras38=$totalHoras39=$totalHoras40=$totalHoras41=$totalHoras42=$totalHoras43=$totalHoras44=$totalHoras45=$totalHoras46=$totalHoras47=$totalHoras48=$totalHoras49='';
@@ -1360,9 +1363,9 @@ if($tipo === 'totalesTodos'){
                             break;
                         case $COPD  :
                             switch ($act) {
-                                case $SF :
-                                    $totalHoras34 += $horas;  
-                                    break;                            
+                                // case $SF :
+                                //     $totalHoras34 += $horas;  
+                                //     break;                            
                                 case $SI :
                                     $totalHoras35 += $horas;  
                                     break;
@@ -1452,25 +1455,25 @@ if($tipo === 'totalesTodos'){
             $sheet->setCellValue('AN'.$filaActual, $totalHoras31);
             $sheet->setCellValue('AO'.$filaActual, $totalHoras32);
             $sheet->setCellValue('AP'.$filaActual, $totalHoras33);
-            $sheet->setCellValue('AQ'.$filaActual, $totalHoras34);
-            $sheet->setCellValue('AR'.$filaActual, $totalHoras35);
-            $sheet->setCellValue('AS'.$filaActual, $totalHoras36);
-            $sheet->setCellValue('AT'.$filaActual, $totalHoras37);
-            $sheet->setCellValue('AU'.$filaActual, $totalHoras38);
-            $sheet->setCellValue('AV'.$filaActual, $totalHoras39);
-            $sheet->setCellValue('AW'.$filaActual, $totalHoras40);
-            $sheet->setCellValue('AX'.$filaActual, $totalHoras41);
-            $sheet->setCellValue('AY'.$filaActual, $totalHoras42);
-            $sheet->setCellValue('AZ'.$filaActual, $totalHoras43);
-            $sheet->setCellValue('BA'.$filaActual, $totalHoras44);
-            $sheet->setCellValue('BB'.$filaActual, $totalHoras45);
-            $sheet->setCellValue('BC'.$filaActual, $totalHoras46);
-            $sheet->setCellValue('BD'.$filaActual, $totalHoras47);
-            $sheet->setCellValue('BE'.$filaActual, $totalHoras48);
-            $sheet->setCellValue('BF'.$filaActual, $totalHoras49);
+            $sheet->setCellValue('AQ'.$filaActual, $totalHoras35);
+            $sheet->setCellValue('AR'.$filaActual, $totalHoras36);
+            $sheet->setCellValue('AS'.$filaActual, $totalHoras37);
+            $sheet->setCellValue('AT'.$filaActual, $totalHoras38);
+            $sheet->setCellValue('AU'.$filaActual, $totalHoras39);
+            $sheet->setCellValue('AV'.$filaActual, $totalHoras40);
+            $sheet->setCellValue('AW'.$filaActual, $totalHoras41);
+            $sheet->setCellValue('AX'.$filaActual, $totalHoras42);
+            $sheet->setCellValue('AY'.$filaActual, $totalHoras43);
+            $sheet->setCellValue('AZ'.$filaActual, $totalHoras44);
+            $sheet->setCellValue('BA'.$filaActual, $totalHoras45);
+            $sheet->setCellValue('BB'.$filaActual, $totalHoras46);
+            $sheet->setCellValue('BC'.$filaActual, $totalHoras47);
+            $sheet->setCellValue('BD'.$filaActual, $totalHoras48);
+            $sheet->setCellValue('BE'.$filaActual, $totalHoras49);
+            $sheet->setCellValue('BF'.$filaActual, $totalHoras50);
             
 
-            $sheet->setCellValue('BG'.$filaActual, '=SUM(J'.$filaActual.':BF'.$filaActual.')');
+            $sheet->setCellValue('BF'.$filaActual, '=SUM(J'.$filaActual.':BE'.$filaActual.')');
 
             $cat = '';
             $act = '';
