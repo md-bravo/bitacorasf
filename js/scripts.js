@@ -902,6 +902,7 @@ function editarRegistro(e){
         // Se oculta el boton de guardar del formulario
         let btnGuardar = document.getElementById('btnGuardar');
         btnGuardar.hidden = true;
+        btnGuardar.disabled = true;
 
         // Se crea el boton de editar
         let btnEditar = document.createElement('input');
@@ -1012,6 +1013,7 @@ function cancelarEdicion(){
     document.getElementById('actividad').disabled = false;
     act_campos();
     document.getElementById('btnGuardar').hidden = false;
+    document.getElementById('btnGuardar').disabled = false;
     document.getElementById('btnEditar').remove();
     document.getElementById('btnCancelar').remove();
     document.getElementsByClassName('fondo-editar')[0].classList.remove("fondo-editar");
