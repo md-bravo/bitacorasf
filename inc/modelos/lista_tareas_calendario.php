@@ -8,10 +8,38 @@ if (isset($_GET['cedula'])) {
 // Conexión a la base de datos
 include '../funciones/conexion.php';
 
+// Definir fecha de inicio y de fin del reporte
+$mesActual = date('n');
+$anioActual = date('Y');
+
+if($mesActual === 1) {
+    $mesAnterior = 12;
+    $anioAnterior = $anioActual - 1;
+} else {
+    $mesAnterior = $mesActual - 1;
+    $anioAnterior = $anioActual;
+}
+
+if($mesActual === 12) {
+    $mesSiguiente = 1;
+    $anioSiguiente = $anioActual + 1;
+} else {
+    $mesSiguiente = $mesActual + 1;
+    $anioSiguiente = $anioActual;
+}
+
+$diaInicio = 1;
+$diaFin = cal_days_in_month(CAL_GREGORIAN, $mesSiguiente, $anioSiguiente);
+
+$fechaInicio = $anioAnterior . "-" . $mesAnterior . "-" . $diaInicio;
+$fechaFin = $anioSiguiente . "-" . $mesSiguiente . "-" . $diaFin;
+
+
 try {
     // Consulta registros del usuario
-    $stmt = $conn->prepare("SELECT reg_fecha, actividad FROM registros WHERE reg_cedula = ? ORDER BY reg_fecha");   
-    $stmt->bind_param('i', $cedula);
+    // $stmt = $conn->prepare("SELECT reg_fecha, actividad FROM registros WHERE reg_cedula = ? ORDER BY reg_fecha");   
+    $stmt = $conn->prepare("SELECT reg_fecha, actividad FROM registros WHERE reg_cedula = ? AND reg_fecha >= ? AND reg_fecha <= ? ORDER BY reg_fecha");
+    $stmt->bind_param('iss', $cedula, $fechaInicio, $fechaFin);
     $stmt->execute();
     $stmt->bind_result($reg_fecha, $reg_actividad);
 
@@ -22,7 +50,12 @@ try {
         array_push($lista_registros, array('fecha'=>$reg_fecha,'registro'=> $reg_actividad));
     }
 
-    //Recorre los registros, extra la fecha y cada una de las actividades
+    // Si no hay registros en la base de datos, se crea una respuesta vacia.
+    if(count($lista_registros) == Null){
+        $respuesta = array();
+    };
+
+    //Recorre los registros, extrae la fecha y cada una de las actividades
     foreach($lista_registros as $registro){
 
         $sumaHoras = 0;

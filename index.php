@@ -218,6 +218,7 @@
         </div>
         <div class="modal-body">
             <p>Bitácora de Trabajo Sistemas Fijos, permite registrar las actividades diárias que se realizan en el proceso.</p>
+            <p>Versión 1.3</p>
             <p>Desarrollada por Mac Donald Bravo.</p>
             <div id="contacto">
                 <a href="mailto:mbravob@hotmail.com?subject=Feedback Bitácora SF&body=Usuario:%20<?php echo $_SESSION['nombre']?>%0D%0A%0D%0A%0D%0A">Enviar Consulta o Comentario</a>
@@ -266,8 +267,8 @@
                     <input type="hidden" name="tipo" id="tipo" value="reportePersonal">
                     <input type="hidden" for="usuario" id="usuario" name="usuario" value="<?php echo $_SESSION['usuario'] ?>">
                     <button type="button" class="btn btn-primary mr-1" id="btnVerReporteModal" data-dismiss="modal">Ver Reporte</button>
-                    <button type="button" class="btn btn-primary mr-1" id="btnGenerarExcelModal">Generar Excel</button>
-                    <button type="button" class="btn btn-primary mr-1" id="btnGenerarExcelModalNuevo">Excel Nuevo</button>
+                    <!-- <button type="button" class="btn btn-primary mr-1" id="btnGenerarExcelModal">Generar Excel</button> -->
+                    <button type="button" class="btn btn-primary mr-1" id="btnGenerarExcelModalNuevo">Generar Excel</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                 </div>                
             </form>

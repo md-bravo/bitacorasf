@@ -23,7 +23,7 @@
         echo '<script src="js/scriptsBackend.js"></script>';
     }else {
         echo '<script src="js/formulario-registrar-actividad.js?v=1"></script>';
-        echo '<script src="js/scripts.js?v=3"></script>';
+        echo '<script src="js/scripts.js?v=3.1"></script>';
     }
 ?>
 

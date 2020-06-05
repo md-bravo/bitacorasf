@@ -10,6 +10,7 @@ if (isset($_POST['cedula'])) {
 }
 if (isset($_POST['fecha'])) {
     $fecha = $_POST['fecha'];
+    list($anio, $mes, $dia) = explode("-", $fecha);
 }
 if (isset($_POST['categoria'])) {
     $categoria = $_POST['categoria'];
@@ -35,10 +36,6 @@ function console_log( $data ){
     echo 'console.log('. json_encode( $data ) .')';
     echo '</script>';
   }
-
-
-list($anio, $mes, $dia) = explode("-", $fecha);
-
 
 if($accion === 'actualizar-registro') {
     // importar la conexion

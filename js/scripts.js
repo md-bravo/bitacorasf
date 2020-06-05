@@ -42,7 +42,7 @@ function eventListener() {
     document.getElementById('btnGenerarExcelBarra').addEventListener('click', establecerFechaDefault);
 
     // Generar archivo de Excel, según el mes y año elegido
-    document.getElementById('btnGenerarExcelModal').addEventListener('click', generarExcel);
+    // document.getElementById('btnGenerarExcelModal').addEventListener('click', generarExcel);
 
     document.getElementById('btnGenerarExcelModalNuevo').addEventListener('click', generarExcel);
 
@@ -258,8 +258,6 @@ function contarDetalle(){
 // Generar archivo de Excel, según el mes elegido
 function generarExcel(e){
     e.preventDefault();
-
-    console.log(e.target.id);
 
     if(e.target.id === "btnGenerarExcelModalNuevo"){
         document.forms['reporteMesDia'].action='inc/modelos/modelo-exportar-new.php';
