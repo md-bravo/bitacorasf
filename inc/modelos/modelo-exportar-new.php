@@ -211,6 +211,9 @@ if($tipo === 'reportePersonal'){
 
         $stmt->close();
 
+        // var_dump($registroMesAnterior);
+        // echo die();
+
         // Recupera de la base de datos los registro del usuario del mes y año indicado.
         $stmt = $conn->prepare("SELECT reg_fecha, actividad FROM registros WHERE reg_cedula = ? AND mes = ? AND anio = ? ORDER BY reg_fecha ");
         $stmt->bind_param('iii', $cedula, $mes, $anio);
@@ -269,8 +272,8 @@ if($tipo === 'reportePersonal'){
             $sheet->getStyle('AD'.$filaActual.':AG'.$filaActual)->applyFromArray($fondoCeleste);
             $sheet->getStyle('AL'.$filaActual.':AO'.$filaActual)->applyFromArray($fondoCeleste);
             $sheet->getStyle('AT'.$filaActual.':BC'.$filaActual)->applyFromArray($fondoCeleste);
-            $sheet->getStyle('CC'.$filaActual.':CG'.$filaActual)->applyFromArray($fondoVerde);
-            $sheet->getStyle('A'.$filaActual.':CI'.$filaActual)->getBorders()->getAllBorders()->applyFromArray( array( 'borderStyle' => Border::BORDER_THIN) );
+            $sheet->getStyle('BD'.$filaActual.':BH'.$filaActual)->applyFromArray($fondoVerde);
+            $sheet->getStyle('A'.$filaActual.':BJ'.$filaActual)->getBorders()->getAllBorders()->applyFromArray( array( 'borderStyle' => Border::BORDER_THIN) );
 
             // Si hay valores los carga en la tabla
             foreach($registrosMesAnterior as $registro){
@@ -458,24 +461,24 @@ if($tipo === 'reportePersonal'){
                             case $PER  :
                                 switch ($act) {
                                     case $ICM :
-                                        $sheet->setCellValue('CC'.$filaActual, $totalHoras45 += $horas);  
+                                        $sheet->setCellValue('BD'.$filaActual, $totalHoras45 += $horas);  
                                         break;                            
                                     case $PAICEG :
-                                        $sheet->setCellValue('CD'.$filaActual, $totalHoras46 += $horas);  
+                                        $sheet->setCellValue('BE'.$filaActual, $totalHoras46 += $horas);  
                                         break;
                                     case $EDC :
-                                        $sheet->setCellValue('CE'.$filaActual, $totalHoras47 += $horas);  
+                                        $sheet->setCellValue('BF'.$filaActual, $totalHoras47 += $horas);  
                                         break;
                                     case $VAC :
-                                        $sheet->setCellValue('CF'.$filaActual, $totalHoras48 += $horas);  
+                                        $sheet->setCellValue('BG'.$filaActual, $totalHoras48 += $horas);  
                                         break;                                                                                        
                                     case $DPAlm :
-                                        $sheet->setCellValue('CG'.$filaActual, $totalHoras49 += $horas);  
+                                        $sheet->setCellValue('BH'.$filaActual, $totalHoras49 += $horas);  
                                         break; 
                                     }
                                 break;
                         }            
-                        $sheet->setCellValue('CH'.$filaActual, '=SUM(M'.$filaActual.':CG'.$filaActual.')');
+                        $sheet->setCellValue('BI'.$filaActual, '=SUM(M'.$filaActual.':BH'.$filaActual.')');
                         // $detalle = $detalle . $regAct[$i]->detalle . ' / ';
                         // $sheet->setCellValue('BK'.$filaActual, $detalle);
                     }        
@@ -531,8 +534,8 @@ if($tipo === 'reportePersonal'){
             $sheet->getStyle('AD'.$filaActual.':AG'.$filaActual)->applyFromArray($fondoCeleste);
             $sheet->getStyle('AL'.$filaActual.':AO'.$filaActual)->applyFromArray($fondoCeleste);
             $sheet->getStyle('AT'.$filaActual.':BC'.$filaActual)->applyFromArray($fondoCeleste);
-            $sheet->getStyle('CC'.$filaActual.':CG'.$filaActual)->applyFromArray($fondoVerde);
-            $sheet->getStyle('A'.$filaActual.':CI'.$filaActual)->getBorders()->getAllBorders()->applyFromArray( array( 'borderStyle' => Border::BORDER_THIN) );
+            $sheet->getStyle('BD'.$filaActual.':BH'.$filaActual)->applyFromArray($fondoVerde);
+            $sheet->getStyle('A'.$filaActual.':BJ'.$filaActual)->getBorders()->getAllBorders()->applyFromArray( array( 'borderStyle' => Border::BORDER_THIN) );
 
             // Si hay valores los carga en la tabla
             foreach($respuesta as $registro){
@@ -714,30 +717,30 @@ if($tipo === 'reportePersonal'){
                                         break;
                                     case $AS :
                                         $sheet->setCellValue('BC'.$filaActual, $totalHoras44 += $horas);  
-                                        break;                                                                                           
+                                        break;                                                                                          
                                     }
                                 break;
                             case $PER  :
                                 switch ($act) {
                                     case $ICM :
-                                        $sheet->setCellValue('CC'.$filaActual, $totalHoras45 += $horas);  
+                                        $sheet->setCellValue('BD'.$filaActual, $totalHoras45 += $horas);  
                                         break;                            
                                     case $PAICEG :
-                                        $sheet->setCellValue('CD'.$filaActual, $totalHoras46 += $horas);  
+                                        $sheet->setCellValue('BE'.$filaActual, $totalHoras46 += $horas);  
                                         break;
                                     case $EDC :
-                                        $sheet->setCellValue('CE'.$filaActual, $totalHoras47 += $horas);  
+                                        $sheet->setCellValue('BF'.$filaActual, $totalHoras47 += $horas);  
                                         break;
                                     case $VAC :
-                                        $sheet->setCellValue('CF'.$filaActual, $totalHoras48 += $horas);  
-                                        break;                                                                                        
+                                        $sheet->setCellValue('BG'.$filaActual, $totalHoras48 += $horas);  
+                                        break;                                                                                      
                                     case $DPAlm :
-                                        $sheet->setCellValue('CG'.$filaActual, $totalHoras49 += $horas);  
+                                        $sheet->setCellValue('BH'.$filaActual, $totalHoras49 += $horas);  
                                         break; 
                                     }
                                 break;
                         }            
-                        $sheet->setCellValue('CH'.$filaActual, '=SUM(M'.$filaActual.':CG'.$filaActual.')');
+                        $sheet->setCellValue('BI'.$filaActual, '=SUM(M'.$filaActual.':BH'.$filaActual.')');
                         // $detalle = $detalle . $regAct[$i]->detalle . ' / ';
                         // $sheet->setCellValue('BK'.$filaActual, $detalle);
                     }        
