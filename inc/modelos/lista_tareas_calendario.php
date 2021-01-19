@@ -4,13 +4,12 @@ if (isset($_GET['cedula'])) {
     $cedula = filter_var($_GET['cedula'], FILTER_SANITIZE_STRING);
     }
 
-
 // Conexión a la base de datos
 include '../funciones/conexion.php';
 
 // Definir fecha de inicio y de fin del reporte
-$mesActual = date('n');
-$anioActual = date('Y');
+$mesActual = intval(date('n'));
+$anioActual = intval(date('Y'));
 
 if($mesActual === 1) {
     $mesAnterior = 12;

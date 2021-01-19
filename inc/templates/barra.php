@@ -1,6 +1,6 @@
 <div class="barra">
 
-    <nav class="navbar px-0 px-md-3 bd-navbar navbar-expand-lg navbar-light bg-dark">
+    <nav class="navbar px-0 px-md-3 bd-navbar navbar-expand-lg navbar-light color-fondo">
           <div class="col-md-6 text-center text-md-left">
                <a href="#" class="navbar-brand text-light">Bitácora de Trabajo - Sistemas Fijos</a>
           </div>        

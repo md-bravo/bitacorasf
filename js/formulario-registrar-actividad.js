@@ -5,8 +5,8 @@ function eventListeners() {
     document.querySelector('#formulario-registro-act').addEventListener('submit', verificacionVacaciones);   
 }
 
-const actAlmuerzo = 26; //id de la actividad de almuerzo
-const actVacaciones = 25; // id de la actividad de vacaciones
+const actAlmuerzo = 22; //id de la actividad de almuerzo
+const actVacaciones = 24; // id de la actividad de vacaciones
 
 // Verifica si la actividad a registrar es de vacaciones y determina las acciones
 function verificacionVacaciones(e){
@@ -239,7 +239,7 @@ function registrarAlmuerzo(){
         fecha = document.querySelector('#fecha').value,
         accion = document.querySelector('#accion').value;
 
-    let catPermisos =  19;
+    let catPermisos =  5;
     let tiempoAlmuerzo = 0.75;
 
     // datos que se envian al servidor

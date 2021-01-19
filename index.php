@@ -291,7 +291,7 @@
 
 </div><!--.container-->
 
-<div class="footer bg-dark">
+<div class="footer color-fondo">
     <div class="row justify-content-center">
         <div class="col col-4">
             <!-- <marquee direction="left" speed="normal" behavior="loop" >

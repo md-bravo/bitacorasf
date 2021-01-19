@@ -6,6 +6,10 @@ html {
      min-height: 100%;
  }
 
+ .color-fondo {
+    background-color: rgba(36, 36, 70);
+ }
+
  .container-login {
      height: 100vh!important;
  }

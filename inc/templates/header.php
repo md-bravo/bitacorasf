@@ -23,4 +23,4 @@
 
 </head>
 
-<body class="bg-dark h-100 login <?php echo obtenerPaginaActual(); ?>">
+<body class="color-fondo h-100 login <?php echo obtenerPaginaActual(); ?>">

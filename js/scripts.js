@@ -3,8 +3,8 @@
 eventListener();
 
 // Variables globales
-const almuerzo = 26,    // id actividad almuerzo
-    vacaciones = 25,    // id actividad vacaciones
+const almuerzo = 22,    // id actividad almuerzo
+    vacaciones = 24,    // id actividad vacaciones
     horasJornada = 9.6, //Horas disponibles basado en 9.6 horas
     diaVacaciones = 9.6,    
     diaFeriado = 9.6,
@@ -260,7 +260,7 @@ function generarExcel(e){
     e.preventDefault();
 
     if(e.target.id === "btnGenerarExcelModalNuevo"){
-        document.forms['reporteMesDia'].action='inc/modelos/modelo-exportar-new.php';
+        document.forms['reporteMesDia'].action='inc/modelos/modelo-exportar-nuevo.php';
     } else {
         document.forms['reporteMesDia'].action='inc/modelos/modelo-exportar.php';
     }
@@ -465,9 +465,7 @@ function establecerFecha(){
 
 // Si la actividad seleccionada es vacaciones o almuerzo, se establecen valores predefinidos
 function actividadPredefinida(){
-    let idAct = Number(document.getElementById('actividad').value);
-    // let almuerzo = 26,
-    //     vacaciones = 25;    
+    let idAct = Number(document.getElementById('actividad').value);  
 
     if(idAct === almuerzo){
         document.getElementById('horas').value = "0.75";
