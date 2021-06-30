@@ -266,8 +266,7 @@
                 <div class="pt-3 d-flex justify-content-end">
                     <input type="hidden" name="tipo" id="tipo" value="reportePersonal">
                     <input type="hidden" for="usuario" id="usuario" name="usuario" value="<?php echo $_SESSION['usuario'] ?>">
-                    <button type="button" class="btn btn-primary mr-1" id="btnVerReporteModal" data-dismiss="modal">Ver Reporte</button>
-                    <!-- <button type="button" class="btn btn-primary mr-1" id="btnGenerarExcelModal">Generar Excel</button> -->
+                    <button type="button" class="btn btn-primary mr-1" id="btnVerReporteModal" data-dismiss="modal">Ver Reporte</button>                    
                     <button type="button" class="btn btn-primary mr-1" id="btnGenerarExcelModalNuevo">Generar Excel</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                 </div>                

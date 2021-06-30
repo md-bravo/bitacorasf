@@ -78,6 +78,9 @@ try {
             } else if($detalle == "Día de Vacaciones"){
                 $titulo = 'Vacaciones';
                 $color = 'gray';
+            } else if($detalle == "Incapacidad"){
+                $titulo = 'Incapacidad';
+                $color = 'gray';
             } else {
                 $titulo = $sumaHoras.' Horas';
                 $color = 'green';

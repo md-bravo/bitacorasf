@@ -4,10 +4,12 @@ eventListener();
 
 // Variables globales
 const almuerzo = 22,    // id actividad almuerzo
+    incapacidad = 23,   // id actividad incapacidad
     vacaciones = 24,    // id actividad vacaciones
     horasJornada = 9.6, //Horas disponibles basado en 9.6 horas
     diaVacaciones = 9.6,    
     diaFeriado = 9.6,
+    diaIncapacidad = 9.6,
     medioDiaVacaciones = 4.8;
 
 
@@ -42,8 +44,6 @@ function eventListener() {
     document.getElementById('btnGenerarExcelBarra').addEventListener('click', establecerFechaDefault);
 
     // Generar archivo de Excel, según el mes y año elegido
-    // document.getElementById('btnGenerarExcelModal').addEventListener('click', generarExcel);
-
     document.getElementById('btnGenerarExcelModalNuevo').addEventListener('click', generarExcel);
 
     document.getElementById('btnVerReporteModal').addEventListener('click', generarReporte);
@@ -106,9 +106,6 @@ $(function()
     }
 
 });//END JQUERY
-
-
-
 
 
 
@@ -218,6 +215,7 @@ function actualizarActividades(){
     }
     act_campos();
     eliminar_radio();
+    actividadPredefinida();
 }
 
 
@@ -259,11 +257,7 @@ function contarDetalle(){
 function generarExcel(e){
     e.preventDefault();
 
-    if(e.target.id === "btnGenerarExcelModalNuevo"){
-        document.forms['reporteMesDia'].action='inc/modelos/modelo-exportar-nuevo.php';
-    } else {
-        document.forms['reporteMesDia'].action='inc/modelos/modelo-exportar.php';
-    }
+        document.forms['reporteMesDia'].action='inc/modelos/modelo-exportar.php';    
         document.forms['reporteMesDia'].method='post';        
         document.forms['reporteMesDia'].submit();
 
@@ -465,7 +459,7 @@ function establecerFecha(){
 
 // Si la actividad seleccionada es vacaciones o almuerzo, se establecen valores predefinidos
 function actividadPredefinida(){
-    let idAct = Number(document.getElementById('actividad').value);  
+    let idAct = Number(document.getElementById('actividad').value);      
 
     if(idAct === almuerzo){
         document.getElementById('horas').value = "0.75";
@@ -474,6 +468,8 @@ function actividadPredefinida(){
         eliminar_radio();
         
     } else if(idAct === vacaciones) {
+
+        eliminar_radio();
 
         let formRegistro = document.getElementById('formulario-registro-act');
         
@@ -504,6 +500,35 @@ function actividadPredefinida(){
         document.getElementById('detalle').value = "";
         des_campos();
 
+    } else if(idAct === incapacidad) {
+
+        eliminar_radio();
+
+        let formRegistro = document.getElementById('formulario-registro-act');
+        
+        let radioBtn = document.createElement('div');
+        radioBtn.classList.add("input-group", "mt-3", "mb-3");
+        radioBtn.id = "div-radio-incapacidad";
+        radioBtn.innerHTML = `                            
+                            <div class="input-group-prepend">                                
+                                <span class="input-group-text">Opciones:</span>
+                            </div>
+                            <div class="form-control border border-success radioIncapacidad">
+                                <div class="form-check form-check-inline pl-3">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="incapacidad" value="incapacidad" onchange="establecerIncapacidad()">
+                                    <label class="form-check-label" for="incapacidad">Incapacidad</label>
+                                </div>
+                                <div class="form-check form-check-inline pl-3">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="cita-med" value="cita-med" onchange="establecerIncapacidad()">
+                                    <label class="form-check-label" for="cita-med">Cita Médica</label>
+                                </div>                            
+                            </div>                        
+        `;
+        formRegistro.insertBefore(radioBtn,formRegistro.childNodes[11]);
+        document.getElementById('horas').value = "";
+        document.getElementById('detalle').value = "";
+        des_campos();
+    
     } else {
         act_campos();
         eliminar_radio();
@@ -512,8 +537,8 @@ function actividadPredefinida(){
 
 // Establece las horas y detalle según la elección en el radio button
 function establecerVacaciones(){
-    diaCompleto = document.getElementById('dia-completo').checked;
-    feriado = document.getElementById('feriado').checked;
+    let diaCompleto = document.getElementById('dia-completo').checked;
+    let feriado = document.getElementById('feriado').checked;
 
     if(diaCompleto === true){
         document.getElementById('horas').value = diaVacaciones;
@@ -524,6 +549,19 @@ function establecerVacaciones(){
     } else {        
         document.getElementById('horas').value = medioDiaVacaciones;
         document.getElementById('detalle').value = "Medio día vacaciones";
+    }
+}
+
+// Establece las horas y detalle según la elección en el radio button
+function establecerIncapacidad() {
+    let incapacidad = document.getElementById('incapacidad').checked;
+
+    if(incapacidad === true){
+        des_campos();
+        document.getElementById('horas').value = diaIncapacidad;
+        document.getElementById('detalle').value = "Incapacidad";
+    } else {
+        act_campos();        
     }
 }
 
@@ -547,8 +585,12 @@ function des_campos(){
 // Eliminar div de radio button
 function eliminar_radio(){
     let divRadio = document.getElementById('div-radio-vacaciones');
+    let divRadioInc = document.getElementById('div-radio-incapacidad');
     if(divRadio){
         divRadio.remove();
+    }
+    if(divRadioInc){
+        divRadioInc.remove();
     }
 }
 
